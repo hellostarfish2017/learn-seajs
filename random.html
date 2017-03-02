@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>地址增加随机查询</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+
+<div id="show"></div>
+
+<!--引入sea.js-->
+<script src="node_modules/seajs/dist/sea.js" id="seajsnode"></script>
+
+<!--开始引入模块-->
+<script>
+    seajs.use('./queryRandom',function(queryRandom){
+        document.getElementById('show').innerHTML=queryRandom.queryRandom(location.href);
+    })
+</script>
+
+
+</body>
+</html>

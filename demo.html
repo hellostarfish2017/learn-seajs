@@ -1,1 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML5</title>
+    <style type="text/css">
+    body{
+        margin:0;
+    }
+    button{
+        margin:1em; 
+        position:relative; 
+        z-index:2;
+    }
+    </style>
+</head>
+<body>
+
+
+<p>Hello HTML5</p>
+<button id="button">点击toggle</button>
+
+<!--引入sea.js-->
+<script src="node_modules/seajs/dist/sea.js" id="seajsnode"></script>
+
+<!--开始引入模块-->
+<script>
+    var myOverlay=null;
+    seajs.use("./overlay",function(overlay){
+        myOverlay=overlay.overlay_func;
+    });
+
+    document.getElementById("button").onclick=function(){
+        myOverlay[myOverlay.display?"hide":"show"]();
+    }
+</script>
+
+
+
+
+
+</body>
+</html>

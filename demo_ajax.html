@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML5</title>
+    <style type="text/css">
+    body{
+        margin:0;
+    }
+    button{
+        margin:1em; 
+        position:relative; 
+        z-index:2;
+    }
+    .box {
+	width: 256px;
+	background-color: #f0f3f9;
+	text-align: center;
+	padding: .5em;
+    }
+    </style>
+</head>
+<body>
+
+
+<p>Hello HTML5</p>
+<p><input type="button" id="button" value="点击Ajax加载"></p>
+<div id="load"></div>
+
+<!--引入sea.js-->
+<script src="node_modules/seajs/dist/sea.js" id="seajsnode"></script>
+
+<!--开始引入模块-->
+<script>
+   var $ajax=null;
+   seajs.use('./ajax_method',function(ajax_method){
+       $ajax=ajax_method;
+   })
+
+   document.getElementById('button').onclick=function(){
+       $ajax.get('beLoaded.html',function(html){
+           document.getElementById('load').innerHTML=html;
+       })
+   }
+</script>
+
+
+
+
+
+</body>
+</html>
